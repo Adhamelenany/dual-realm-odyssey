@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dual Realm Odyssey - رحلة العالمين</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0a0a0a;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+        #game-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #connection-status {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background: rgba(0,0,0,0.7);
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .connected { color: #50C878; }
+        .disconnected { color: #ff4444; }
+        #realm-selector {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background: rgba(0,0,0,0.9);
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid #50C878;
+        }
+        .realm-btn {
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .realm-btn:hover {
+            transform: scale(1.05);
+        }
+        .light-btn {
+            background: linear-gradient(135deg, #FFD700, #FF8C00);
+            color: #000;
+            font-weight: bold;
+        }
+        .shadow-btn {
+            background: linear-gradient(135deg, #191970, #4B0082);
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="connection-status" class="disconnected">جاري الاتصال...</div>
+    
+    <div id="realm-selector">
+        <h1>اختر عالمك</h1>
+        <p>يجب أن يختار اللاعب الآخر العالم الآخر</p>
+        <button class="realm-btn light-btn" onclick="joinGame('light')">🌟 عالم النور</button>
+        <button class="realm-btn shadow-btn" onclick="joinGame('shadow')">🌙 عالم الظل</button>
+    </div>
+    
+    <div id="game-container" style="display: none;"></div>
+    
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
